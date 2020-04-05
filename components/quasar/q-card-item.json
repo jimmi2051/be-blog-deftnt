@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_card_items",
+  "info": {
+    "name": "q-card-item",
+    "icon": "arrow-right"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "background": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

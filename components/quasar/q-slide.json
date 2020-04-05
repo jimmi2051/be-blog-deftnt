@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_slides",
+  "info": {
+    "name": "q-slide",
+    "icon": "list-ol"
+  },
+  "options": {},
+  "attributes": {
+    "slides": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quasar.q-slide-item"
+    }
+  }
+}

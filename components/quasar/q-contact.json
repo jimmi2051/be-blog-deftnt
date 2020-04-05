@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_contacts",
+  "info": {
+    "name": "q-contact",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "contacts": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quasar.q-contact-item"
+    }
+  }
+}

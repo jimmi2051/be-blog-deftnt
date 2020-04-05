@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "sections",
+  "info": {
+    "name": "section"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "sectionName": {
+      "type": "string"
+    },
+    "sectionLayout": {
+      "type": "string"
+    },
+    "pages": {
+      "collection": "page",
+      "via": "sections",
+      "dominant": true
+    },
+    "sectiondetail": {
+      "model": "sectiondetail",
+      "via": "section"
+    }
+  }
+}

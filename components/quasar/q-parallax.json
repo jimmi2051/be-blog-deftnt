@@ -1,0 +1,20 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_parallaxes",
+  "info": {
+    "name": "q-parallax",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "background": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

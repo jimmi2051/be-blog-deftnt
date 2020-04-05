@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_timelines",
+  "info": {
+    "name": "q-timeline",
+    "icon": "th-list"
+  },
+  "options": {},
+  "attributes": {
+    "listentry": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quasar.q-timeline-entry"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

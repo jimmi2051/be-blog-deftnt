@@ -1,0 +1,29 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_slide_items",
+  "info": {
+    "name": "q-slide-item",
+    "icon": "arrow-left"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "leftImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "rightImage": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

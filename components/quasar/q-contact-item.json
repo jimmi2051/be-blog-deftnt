@@ -1,0 +1,20 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_contact_items",
+  "info": {
+    "name": "q-contact-item",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "iconfa": {
+      "type": "string"
+    },
+    "urlContact": {
+      "type": "string"
+    },
+    "displayContact": {
+      "type": "string"
+    }
+  }
+}

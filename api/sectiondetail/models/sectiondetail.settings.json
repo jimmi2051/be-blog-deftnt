@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "sectiondetails",
+  "info": {
+    "name": "sectiondetail"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "quasar.q-contact-item",
+        "quasar.q-timeline",
+        "quasar.q-list-linear-progress",
+        "quasar.q-timeline-entry",
+        "quasar.q-card-item",
+        "quasar.q-slide",
+        "quasar.q-linear-progress",
+        "quasar.q-slide-item",
+        "quasar.q-card",
+        "quasar.q-parallax",
+        "quasar.q-contact"
+      ]
+    },
+    "sectionName": {
+      "type": "string"
+    },
+    "section": {
+      "via": "sectiondetail",
+      "model": "section"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_timeline_entries",
+  "info": {
+    "name": "q-timeline-entry",
+    "icon": "object-group"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "timeline": {
+      "type": "string"
+    },
+    "icon": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

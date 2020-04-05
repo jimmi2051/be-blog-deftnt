@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_linear_progresses",
+  "info": {
+    "name": "q-linear-progress",
+    "icon": "arrow-alt-circle-right"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "value": {
+      "type": "float",
+      "max": 100,
+      "min": 0
+    }
+  }
+}

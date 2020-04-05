@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "pages",
+  "info": {
+    "name": "page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "pageName": {
+      "type": "string"
+    },
+    "pageUrl": {
+      "type": "string"
+    },
+    "pageLayout": {
+      "type": "string"
+    },
+    "sections": {
+      "via": "pages",
+      "collection": "section"
+    }
+  }
+}

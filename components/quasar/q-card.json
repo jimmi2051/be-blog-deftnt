@@ -1,0 +1,16 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_cards",
+  "info": {
+    "name": "q-card",
+    "icon": "align-justify"
+  },
+  "options": {},
+  "attributes": {
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quasar.q-card-item"
+    }
+  }
+}

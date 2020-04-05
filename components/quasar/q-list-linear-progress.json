@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "components_quasar_q_list_linear_progresses",
+  "info": {
+    "name": "q-list-linear-progress",
+    "icon": "list-ul"
+  },
+  "options": {},
+  "attributes": {
+    "listprogress": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quasar.q-linear-progress"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}
