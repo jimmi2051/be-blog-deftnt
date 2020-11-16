@@ -23,9 +23,7 @@ module.exports = {
       channel,
     };
     ctx.status = 200;
-    pusher.trigger(channel, "chat-message", {
-      message,
-    });
+    pusher.trigger(channel, "chat-message", ctx.response.body);
     return ctx;
   },
 };
