@@ -16,8 +16,9 @@ const pusher = new Pusher({
 
 module.exports = {
   async send(ctx) {
-    const { user, message, channel } = ctx.request.body;
+    const { id, user, message, channel } = ctx.request.body;
     ctx.response.body = {
+      id,
       user,
       message,
       channel,
