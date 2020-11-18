@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "connection": "default",
+  "collectionName": "messages",
+  "info": {
+    "name": "section"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "senderId": {
+      "type": "string"
+    },
+    "senderName": {
+      "type": "string"
+    },
+    "receiverId": {
+      "type": "string"
+    },
+    "receiverName": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "channel": {
+      "type": "string"
+    }
+  }
+}

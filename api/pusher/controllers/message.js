@@ -23,6 +23,15 @@ module.exports = {
       message,
       channel,
     };
+    const data = {
+      senderId: id,
+      senderName: user,
+      receiverId: null,
+      receiverName: null,
+      message,
+      channel,
+    };
+    strapi.services.message.create(data);
     ctx.status = 200;
     pusher.trigger(channel, "chat-message", ctx.response.body);
     return ctx;
