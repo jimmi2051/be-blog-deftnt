@@ -55,6 +55,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/pusher/auth",
+      "handler": "message.auth",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/pusher",
+      "handler": "message.getPusher",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
