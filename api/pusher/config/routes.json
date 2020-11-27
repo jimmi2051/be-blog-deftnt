@@ -63,14 +63,6 @@
       "config": {
         "policies": []
       }
-    },
-    {
-      "method": "GET",
-      "path": "/pusher",
-      "handler": "message.getPusher",
-      "config": {
-        "policies": []
-      }
     }
   ]
 }

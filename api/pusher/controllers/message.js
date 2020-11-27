@@ -39,28 +39,12 @@ module.exports = {
   async auth(ctx) {
     const socketId = ctx.request.body.socket_id;
     const channel = ctx.request.body.channel_name;
+    const { userId, userName } = ctx.request.query;
     const presenceData = {
-      user_id: Math.random().toString(36).slice(2) + Date.now(),
+      user_id: userId,
+      user_info: { name: userName, email: userName },
     };
     const auth = pusher.authenticate(socketId, channel, presenceData);
     return ctx.response.send(auth);
-  },
-  async getPusher(ctx) {
-    var currentUser = {
-      name: "Tommy",
-      id: 42,
-    };
-    const channelChat = pusher.subscribe("presence-chat", {
-      authEndpoint: "/pusher/auth",
-      auth: {
-        params: currentUser,
-      },
-    });
-    channelChat.bind("pusher:subscription_succeeded", function () {
-      console.log("Channel members:", channelChat.members);
-    });
-    ctx.status = 200;
-    // ctx.response = channelChat;
-    return ctx;
   },
 };
