@@ -4,6 +4,13 @@
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
+const { Wit, log } = require("node-wit");
+
+const client = new Wit({
+  accessToken: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
+  logger: new log.Logger(log.DEBUG), // optional
+});
+
 const Pusher = require("pusher");
 
 const pusher = new Pusher({
@@ -14,9 +21,18 @@ const pusher = new Pusher({
   useTLS: true,
 });
 
+const formatBotMsg = (message, channel) => {
+  return {
+    id: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
+    user: "Tèo Bot",
+    message,
+    channel,
+  };
+};
+
 module.exports = {
   async send(ctx) {
-    const { id, user, message, channel } = ctx.request.body;
+    const { id, user, message, channel, activeBot = false } = ctx.request.body;
     ctx.response.body = {
       id,
       user,
@@ -34,6 +50,24 @@ module.exports = {
     strapi.services.message.create(data);
     ctx.status = 200;
     pusher.trigger(channel, "chat-message", ctx.response.body);
+    if (activeBot) {
+      client.message(message).then((data) => {
+        const { entities } = data;
+        for (let key in entities) {
+          if (entities.hasOwnProperty(key)) {
+            const valueEntities = entities[key];
+            if (valueEntities.length > 0) {
+              const resOfBot = valueEntities[0].value;
+              pusher.trigger(
+                channel,
+                "chat-message",
+                formatBotMsg(resOfBot, channel)
+              );
+            }
+          }
+        }
+      });
+    }
     return ctx;
   },
   async auth(ctx) {
