@@ -29,7 +29,16 @@ const formatBotMsg = (message, channel) => {
     channel,
   };
 };
-
+const formatBotMsgToSave = (message, channel) => {
+  return {
+    senderId: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
+    senderName: "Tèo Bot",
+    receiverId: null,
+    receiverName: null,
+    message,
+    channel,
+  };
+};
 module.exports = {
   async send(ctx) {
     const { id, user, message, channel, activeBot = false } = ctx.request.body;
@@ -58,6 +67,9 @@ module.exports = {
             const valueEntities = entities[key];
             if (valueEntities.length > 0) {
               const resOfBot = valueEntities[0].value;
+              strapi.services.message.create(
+                formatBotMsgToSave(resOfBot, channel)
+              );
               pusher.trigger(
                 channel,
                 "chat-message",
