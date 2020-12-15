@@ -63,6 +63,22 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/pusher/trans",
+      "handler": "message.trans",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "get",
+      "path": "/pusher/transLocal",
+      "handler": "message.transLocal",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

@@ -4,13 +4,55 @@
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
-const { Wit, log } = require("node-wit");
-
+const { Wit, log, interactive } = require("node-wit");
+const fs = require("fs");
+const yaml = require("js-yaml");
+const listLanguague = [
+  "bengali",
+  "german",
+  "italian",
+  "oriya",
+  "spanish",
+  "traditionalchinese",
+  "chinese",
+  "hebrew",
+  "japanese",
+  "persian",
+  "swedish",
+  "turkish",
+  "english",
+  "hindi",
+  "korean",
+  "portuguese",
+  "telugu",
+  "french",
+  "indonesian",
+  "marathi",
+  "russian",
+  "thai",
+];
+const listDataEnglish = [
+  "movies.yml",
+  "sports.yml",
+  "computers.yml",
+  "gossip.yml",
+  "humor.yml",
+  "politics.yml",
+  "trivia.yml",
+  "conversations.yml",
+  "literature.yml",
+  "psychology.yml",
+];
+function sleeper(ms) {
+  return function (x) {
+    return new Promise((resolve) => setTimeout(() => resolve(x), ms));
+  };
+}
 const client = new Wit({
   accessToken: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
-  logger: new log.Logger(log.DEBUG), // optional
+  logger: new log.Logger(log.ERROR),
 });
-
+// interactive(client);
 const Pusher = require("pusher");
 
 const pusher = new Pusher({
@@ -39,6 +81,25 @@ const formatBotMsgToSave = (message, channel) => {
     channel,
   };
 };
+const formatUtterances = (msg, response, intent, entity) => {
+  return [
+    {
+      text: msg,
+      intent,
+      entities: [
+        {
+          entity,
+          start: 0,
+          end: msg.length,
+          body: response,
+          entities: [],
+        },
+      ],
+      traits: [],
+    },
+  ];
+};
+
 module.exports = {
   async send(ctx) {
     const { id, user, message, channel, activeBot = false } = ctx.request.body;
@@ -61,7 +122,7 @@ module.exports = {
     pusher.trigger(channel, "chat-message", ctx.response.body);
     if (activeBot) {
       client.message(message).then((data) => {
-        const { entities } = data;
+        const { entities, intents, traits } = data;
         for (let key in entities) {
           if (entities.hasOwnProperty(key)) {
             const valueEntities = entities[key];
@@ -92,5 +153,100 @@ module.exports = {
     };
     const auth = pusher.authenticate(socketId, channel, presenceData);
     return ctx.response.send(auth);
+  },
+  async trans(ctx) {
+    try {
+      const { intent, entity } = ctx.request.body;
+      const { file0 } = ctx.request.files;
+      let fileContents = fs.readFileSync(file0.path, "utf8");
+      let data = yaml.safeLoad(fileContents);
+      const { categories, conversations } = data;
+      const index = Math.floor(Math.random() * conversation.length);
+      for (let conversation of conversations) {
+        const utterance = formatUtterances(
+          conversation[0],
+          conversation[index],
+          intent,
+          entity
+        );
+        fetch("https://api.wit.ai/utterances", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer MQZMCH5KLIYRPMVXH2OCAM675XWR2THH",
+          },
+          body: JSON.stringify(bodyData),
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            client.message(conversation[utterance]);
+            sleeper(10000);
+          })
+          .catch((error) => {});
+      }
+      ctx.status = 200;
+      return ctx.send({
+        status: true,
+        message: `Training success. File ${file0.name} with intent ${intent} & entity ${entity}`,
+      });
+    } catch {
+      ctx.status = 400;
+      return ctx.send({
+        status: false,
+        message: "Params invalid. [file0, intent, entity]",
+      });
+    }
+  },
+  async transLocal(ctx) {
+    try {
+      for (let dataEnglish of listDataEnglish) {
+        let fileContents = fs.readFileSync(
+          `${__dirname}/data/english/${dataEnglish}`,
+          "utf8"
+        );
+        let data = yaml.safeLoad(fileContents);
+        const { categories, conversations } = data;
+        let entity = "question:question";
+        let intent = "question";
+
+        for (let conversation of conversations) {
+          let bodyData = [];
+          for (let i = 1; i < conversation.length; i++) {
+            const utterance = formatUtterances(
+              conversation[0],
+              conversation[i],
+              intent,
+              entity
+            );
+            bodyData = bodyData.concat(utterance);
+          }
+
+          fetch("https://api.wit.ai/utterances", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              Authorization: "Bearer MQZMCH5KLIYRPMVXH2OCAM675XWR2THH",
+            },
+            body: JSON.stringify(bodyData),
+          })
+            .then((response) => {
+              return response.json();
+            })
+            .then((result) => {
+              client.message(conversation[0]);
+              sleeper(10000);
+            })
+            .catch((error) => {});
+        }
+      }
+
+      ctx.send({ status: "Ok" });
+    } catch (e) {
+      console.log(e);
+    }
   },
 };
