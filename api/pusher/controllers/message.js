@@ -147,6 +147,7 @@ module.exports = {
         } else if (greeting) {
           resOfBot = greeting;
         } else {
+          resOfBot = "";
           for (let key in entities) {
             if (entities.hasOwnProperty(key)) {
               const valueEntities = entities[key];
@@ -178,54 +179,52 @@ module.exports = {
     return ctx.response.send(auth);
   },
   async trans(ctx) {
-    // try {
-    const { intent, entity } = ctx.request.body;
-    const { file0 } = ctx.request.files;
-    let fileContents = fs.readFileSync(file0.path, "utf8");
-    let data = yaml.safeLoad(fileContents);
-    const { categories, conversations } = data;
-    for (let conversation of conversations) {
-      const index = Math.floor(Math.random() * conversation.length);
-      const utterance = formatUtterances(
-        conversation[0],
-        conversation[index],
-        intent,
-        entity
-      );
-      console.log("utterance", utterance);
-      fetch("https://api.wit.ai/utterances", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          Authorization: "Bearer MQZMCH5KLIYRPMVXH2OCAM675XWR2THH",
-        },
-        body: JSON.stringify(utterance),
-      })
-        .then((response) => {
-          return response.json();
+    try {
+      const { intent, entity } = ctx.request.body;
+      const { file0 } = ctx.request.files;
+      let fileContents = fs.readFileSync(file0.path, "utf8");
+      let data = yaml.safeLoad(fileContents);
+      const { categories, conversations } = data;
+      for (let conversation of conversations) {
+        const index = Math.floor(Math.random() * conversation.length);
+        const utterance = formatUtterances(
+          conversation[0],
+          conversation[index],
+          intent,
+          entity
+        );
+        fetch("https://api.wit.ai/utterances", {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Authorization: "Bearer MQZMCH5KLIYRPMVXH2OCAM675XWR2THH",
+          },
+          body: JSON.stringify(utterance),
         })
-        .then((result) => {
-          client.message(conversation[utterance]);
-          sleeper(10000);
-        })
-        .catch((error) => {
-          console.log("error ==>", error);
-        });
+          .then((response) => {
+            return response.json();
+          })
+          .then((result) => {
+            client.message(conversation[utterance]);
+            sleeper(10000);
+          })
+          .catch((error) => {
+            console.log("error ==>", error);
+          });
+      }
+      ctx.status = 200;
+      return ctx.send({
+        status: true,
+        message: `Training success. File ${file0.name} with intent ${intent} & entity ${entity}`,
+      });
+    } catch {
+      ctx.status = 400;
+      return ctx.send({
+        status: false,
+        message: "Params invalid. [file0, intent, entity]",
+      });
     }
-    ctx.status = 200;
-    return ctx.send({
-      status: true,
-      message: `Training success. File ${file0.name} with intent ${intent} & entity ${entity}`,
-    });
-    // }
-    // catch {
-    //   ctx.status = 400;
-    //   return ctx.send({
-    //     status: false,
-    //     message: "Params invalid. [file0, intent, entity]",
-    //   });
-    // }
   },
   async transLocal(ctx) {
     try {
