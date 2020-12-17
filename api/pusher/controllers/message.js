@@ -100,6 +100,19 @@ const formatUtterances = (msg, response, intent, entity) => {
   ];
 };
 
+const firstValue = (obj, key) => {
+  const val =
+    obj &&
+    obj[key] &&
+    Array.isArray(obj[key]) &&
+    obj[key].length > 0 &&
+    obj[key][0].value;
+  if (!val) {
+    return null;
+  }
+  return val;
+};
+
 module.exports = {
   async send(ctx) {
     const { id, user, message, channel, activeBot = false } = ctx.request.body;
@@ -123,22 +136,32 @@ module.exports = {
     if (activeBot) {
       client.message(message).then((data) => {
         const { entities, intents, traits } = data;
-        for (let key in entities) {
-          if (entities.hasOwnProperty(key)) {
-            const valueEntities = entities[key];
-            if (valueEntities.length > 0) {
-              const resOfBot = valueEntities[0].value;
-              strapi.services.message.create(
-                formatBotMsgToSave(resOfBot, channel)
-              );
-              pusher.trigger(
-                channel,
-                "chat-message",
-                formatBotMsg(resOfBot, channel)
-              );
+        const greeting = firstValue(entities, "wit_greetings:wit_greetings");
+        const contact = firstValue(entities, "wit$contact:contact");
+        const special = firstValue(entities, "special:special");
+        let resOfBot = message;
+        if (greeting && contact) {
+          resOfBot = `${greeting}, ${contact}.`;
+        } else if (greeting && special) {
+          resOfBot = `${greeting}, ${special}.`;
+        } else if (greeting) {
+          resOfBot = greeting;
+        } else {
+          for (let key in entities) {
+            if (entities.hasOwnProperty(key)) {
+              const valueEntities = entities[key];
+              if (valueEntities.length > 0) {
+                resOfBot += ` ${valueEntities[0].value}`;
+              }
             }
           }
         }
+        strapi.services.message.create(formatBotMsgToSave(resOfBot, channel));
+        pusher.trigger(
+          channel,
+          "chat-message",
+          formatBotMsg(resOfBot, channel)
+        );
       });
     }
     return ctx;
@@ -155,50 +178,54 @@ module.exports = {
     return ctx.response.send(auth);
   },
   async trans(ctx) {
-    try {
-      const { intent, entity } = ctx.request.body;
-      const { file0 } = ctx.request.files;
-      let fileContents = fs.readFileSync(file0.path, "utf8");
-      let data = yaml.safeLoad(fileContents);
-      const { categories, conversations } = data;
+    // try {
+    const { intent, entity } = ctx.request.body;
+    const { file0 } = ctx.request.files;
+    let fileContents = fs.readFileSync(file0.path, "utf8");
+    let data = yaml.safeLoad(fileContents);
+    const { categories, conversations } = data;
+    for (let conversation of conversations) {
       const index = Math.floor(Math.random() * conversation.length);
-      for (let conversation of conversations) {
-        const utterance = formatUtterances(
-          conversation[0],
-          conversation[index],
-          intent,
-          entity
-        );
-        fetch("https://api.wit.ai/utterances", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-            Authorization: "Bearer MQZMCH5KLIYRPMVXH2OCAM675XWR2THH",
-          },
-          body: JSON.stringify(bodyData),
+      const utterance = formatUtterances(
+        conversation[0],
+        conversation[index],
+        intent,
+        entity
+      );
+      console.log("utterance", utterance);
+      fetch("https://api.wit.ai/utterances", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: "Bearer MQZMCH5KLIYRPMVXH2OCAM675XWR2THH",
+        },
+        body: JSON.stringify(utterance),
+      })
+        .then((response) => {
+          return response.json();
         })
-          .then((response) => {
-            return response.json();
-          })
-          .then((result) => {
-            client.message(conversation[utterance]);
-            sleeper(10000);
-          })
-          .catch((error) => {});
-      }
-      ctx.status = 200;
-      return ctx.send({
-        status: true,
-        message: `Training success. File ${file0.name} with intent ${intent} & entity ${entity}`,
-      });
-    } catch {
-      ctx.status = 400;
-      return ctx.send({
-        status: false,
-        message: "Params invalid. [file0, intent, entity]",
-      });
+        .then((result) => {
+          client.message(conversation[utterance]);
+          sleeper(10000);
+        })
+        .catch((error) => {
+          console.log("error ==>", error);
+        });
     }
+    ctx.status = 200;
+    return ctx.send({
+      status: true,
+      message: `Training success. File ${file0.name} with intent ${intent} & entity ${entity}`,
+    });
+    // }
+    // catch {
+    //   ctx.status = 400;
+    //   return ctx.send({
+    //     status: false,
+    //     message: "Params invalid. [file0, intent, entity]",
+    //   });
+    // }
   },
   async transLocal(ctx) {
     try {
