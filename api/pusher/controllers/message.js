@@ -113,6 +113,62 @@ const firstValue = (obj, key) => {
   return val;
 };
 
+const processForGreetings = (entities) => {
+  const greeting = firstValue(entities, "wit_greetings:wit_greetings");
+  const contact = firstValue(entities, "wit$contact:contact");
+  const special = firstValue(entities, "special:special");
+  let resOfBot = "";
+  if (greeting && contact) {
+    resOfBot = `${greeting}, ${contact}.`;
+  } else if (greeting && special) {
+    resOfBot = `${greeting}, ${special}.`;
+  } else if (greeting) {
+    resOfBot = greeting;
+  }
+  return resOfBot;
+};
+
+const processForQuestion = async (entities) => {
+  const getQuestion = firstValue(entities, "get_question:get_question");
+  let resOfBot = "";
+  if (getQuestion) {
+    let question = "";
+    for (let key in entities) {
+      if (key === "get_question:get_question") continue;
+      if (entities.hasOwnProperty(key)) {
+        const valueEntities = entities[key];
+        if (valueEntities.length > 0) {
+          question += ` ${valueEntities[0].value}`;
+        }
+      }
+    }
+    let urlGetKey = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${question}&limit=1&namespace=0&format=json`;
+    let keySearch = "";
+    let fullUrl = "";
+    await fetch(urlGetKey)
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        keySearch = result[1][0];
+        fullUrl = result[3][0];
+      });
+    let urlSearch = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&titles=${keySearch}&format=json&redirects&exlimit=1&exsentences=3`;
+    await fetch(urlSearch)
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        const pagesObj = result.query.pages;
+        const dataSearch = pagesObj[Object.keys(pagesObj)[0]];
+        if (dataSearch.extract) {
+          resOfBot = `${dataSearch.extract} <br/><br/> <a class="hyper-link-chat" target="_blank" href="${fullUrl}"> >>>>> Read more here <<<<< </a>`;
+        }
+      });
+  }
+  return resOfBot;
+};
+
 module.exports = {
   async send(ctx) {
     const { id, user, message, channel, activeBot = false } = ctx.request.body;
@@ -134,20 +190,13 @@ module.exports = {
     ctx.status = 200;
     pusher.trigger(channel, "chat-message", ctx.response.body);
     if (activeBot) {
-      client.message(message).then((data) => {
+      client.message(message).then(async (data) => {
         const { entities, intents, traits } = data;
-        const greeting = firstValue(entities, "wit_greetings:wit_greetings");
-        const contact = firstValue(entities, "wit$contact:contact");
-        const special = firstValue(entities, "special:special");
-        let resOfBot = message;
-        if (greeting && contact) {
-          resOfBot = `${greeting}, ${contact}.`;
-        } else if (greeting && special) {
-          resOfBot = `${greeting}, ${special}.`;
-        } else if (greeting) {
-          resOfBot = greeting;
-        } else {
-          resOfBot = "";
+        let resOfBot = processForGreetings(entities);
+        if (resOfBot === "") {
+          resOfBot = await processForQuestion(entities);
+        }
+        if (resOfBot === "") {
           for (let key in entities) {
             if (entities.hasOwnProperty(key)) {
               const valueEntities = entities[key];
@@ -157,7 +206,9 @@ module.exports = {
             }
           }
         }
-        strapi.services.message.create(formatBotMsgToSave(resOfBot, channel));
+        await strapi.services.message.create(
+          formatBotMsgToSave(resOfBot, channel)
+        );
         pusher.trigger(
           channel,
           "chat-message",
