@@ -3,7 +3,7 @@
   "connection": "default",
   "collectionName": "messages",
   "info": {
-    "name": "section"
+    "name": "pusher"
   },
   "options": {
     "increments": true,
