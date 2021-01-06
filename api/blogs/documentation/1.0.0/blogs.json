@@ -1,90 +1,18 @@
 {
   "paths": {
-    "/send-message": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Unclassified"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/messages": {
+    "/blogs": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find all the blogs's records",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve blogs document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Blogs"
                   }
                 }
               }
@@ -123,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "Blogs"
         ],
         "parameters": [
           {
@@ -266,18 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new record",
+        "description": "Create a new blogs record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve blogs document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Blogs"
                 }
               }
             }
@@ -315,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "Blogs"
         ],
         "requestBody": {
           "description": "",
@@ -323,26 +247,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUnclassified"
+                "$ref": "#/components/schemas/NewBlogs"
               }
             }
           }
         }
       }
     },
-    "/messages/count": {
+    "/blogs/count": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Retrieve the numver of blogs documents",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve blogs document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -382,26 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "Blogs"
         ],
         "parameters": []
       }
     },
-    "/messages/{id}": {
+    "/blogs/{id}": {
       "get": {
         "deprecated": false,
-        "description": "",
+        "description": "Find one blogs record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve blogs document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Blogs"
                 }
               }
             }
@@ -439,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "Blogs"
         ],
         "parameters": [
           {
@@ -456,18 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a record",
+        "description": "Update a single blogs record",
         "responses": {
           "200": {
-            "description": "response",
+            "description": "Retrieve blogs document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Blogs"
                 }
               }
             }
@@ -505,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "Blogs"
         ],
         "requestBody": {
           "description": "",
@@ -513,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewUnclassified"
+                "$ref": "#/components/schemas/NewBlogs"
               }
             }
           }
@@ -533,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a record",
+        "description": "Delete a single blogs record",
         "responses": {
           "200": {
-            "description": "deletes a single record based on the ID supplied",
+            "description": "deletes a single blogs based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -579,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Unclassified"
+          "Blogs"
         ],
         "parameters": [
           {
@@ -594,210 +510,104 @@
           }
         ]
       }
-    },
-    "/pusher/auth": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Unclassified"
+    }
+  },
+  "components": {
+    "schemas": {
+      "Blogs": {
+        "required": [
+          "id"
         ],
-        "requestBody": {
-          "description": "",
-          "required": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "thumbnail": {
+            "type": "string"
+          },
           "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
+            "type": "string"
+          },
+          "category": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "thumbnail": {
+                "type": "string"
+              },
+              "blogs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
                 }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
           }
         }
-      }
-    },
-    "/pusher/trans": {
-      "post": {
-        "deprecated": false,
-        "description": "Create a new record",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
+      },
+      "NewBlogs": {
+        "properties": {
+          "title": {
+            "type": "string"
           },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+          "description": {
+            "type": "string"
           },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+          "thumbnail": {
+            "type": "string"
           },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Unclassified"
-        ],
-        "requestBody": {
-          "description": "",
-          "required": true,
           "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "foo": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
           }
         }
-      }
-    },
-    "/pusher/transLocal": {
-      "get": {
-        "deprecated": false,
-        "description": "",
-        "responses": {
-          "200": {
-            "description": "response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          },
-          "default": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
-          }
-        },
-        "summary": "",
-        "tags": [
-          "Unclassified"
-        ],
-        "parameters": []
       }
     }
   },
   "tags": [
     {
-      "name": "Unclassified"
+      "name": "Blogs"
     }
   ]
 }
