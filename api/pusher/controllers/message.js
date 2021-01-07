@@ -326,4 +326,12 @@ module.exports = {
       console.log(e);
     }
   },
+  async healthCheck(ctx) {
+    try {
+      ctx.send({ description: "Server is Ok!" });
+    } catch {
+      ctx.status = 500;
+      ctx.send({ description: "Internal Server" });
+    }
+  },
 };

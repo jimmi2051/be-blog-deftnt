@@ -79,6 +79,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "get",
+      "path": "/healthCheck",
+      "handler": "message.healthCheck",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
