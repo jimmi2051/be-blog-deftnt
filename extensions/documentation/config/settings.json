@@ -1,0 +1,46 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "DOCUMENTATION",
+    "description": "Backend Blog - Created by Thanh Ly",
+    "termsOfService": "None",
+    "contact": {
+      "name": "TEAM",
+      "email": "thanhnl0697@gmail.com",
+      "url": "https://www.linkedin.com/in/thanh-nguyen-ly/"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "x-strapi-config": {
+    "path": "/documentation",
+    "showGeneratedFiles": true,
+    "pluginsForWhichToGenerateDoc": ["email", "upload", "users-permissions"]
+  },
+  "servers": [
+    {
+      "url": "http://localhost:1337",
+      "description": "Development server"
+    },
+    {
+      "url": "Not available",
+      "description": "Staging server"
+    },
+    {
+      "url": "https://be-blog-deftnt.herokuapp.com/",
+      "description": "Production server"
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more",
+    "url": "https://strapi.io/documentation/developer-docs/latest/"
+  },
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}

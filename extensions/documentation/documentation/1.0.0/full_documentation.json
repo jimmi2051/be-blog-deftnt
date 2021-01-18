@@ -13,17 +13,27 @@
     "license": {
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
-    }
+    },
+    "x-generation-date": "01/18/2021 2:32:39 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
     "showGeneratedFiles": true,
-    "pluginsForWhichToGenerateDoc": ["email", "upload", "users-permissions"]
+    "generateDefaultResponse": true,
+    "pluginsForWhichToGenerateDoc": [
+      "email",
+      "upload",
+      "users-permissions"
+    ]
   },
   "servers": [
     {
       "url": "http://localhost:1337",
       "description": "Development server"
+    },
+    {
+      "url": "Not available",
+      "description": "Staging server"
     },
     {
       "url": "https://be-blog-deftnt.herokuapp.com/",
@@ -90,7 +100,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blogs"],
+        "tags": [
+          "Blogs"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -276,7 +288,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blogs"],
+        "tags": [
+          "Blogs"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -341,7 +355,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blogs"],
+        "tags": [
+          "Blogs"
+        ],
         "parameters": []
       }
     },
@@ -392,7 +408,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blogs"],
+        "tags": [
+          "Blogs"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -452,7 +470,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blogs"],
+        "tags": [
+          "Blogs"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -524,7 +544,9 @@
           }
         },
         "summary": "",
-        "tags": ["Blogs"],
+        "tags": [
+          "Blogs"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -589,7 +611,9 @@
           }
         },
         "summary": "",
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -775,7 +799,9 @@
           }
         },
         "summary": "",
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -840,7 +866,9 @@
           }
         },
         "summary": "",
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "parameters": []
       }
     },
@@ -891,7 +919,9 @@
           }
         },
         "summary": "",
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -951,7 +981,9 @@
           }
         },
         "summary": "",
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1023,7 +1055,9 @@
           }
         },
         "summary": "",
-        "tags": ["Category"],
+        "tags": [
+          "Category"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1088,7 +1122,9 @@
           }
         },
         "summary": "",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -1274,7 +1310,9 @@
           }
         },
         "summary": "",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1339,7 +1377,9 @@
           }
         },
         "summary": "",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "parameters": []
       }
     },
@@ -1390,7 +1430,9 @@
           }
         },
         "summary": "",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1450,7 +1492,9 @@
           }
         },
         "summary": "",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1522,7 +1566,9 @@
           }
         },
         "summary": "",
-        "tags": ["Content"],
+        "tags": [
+          "Content"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1587,7 +1633,9 @@
           }
         },
         "summary": "",
-        "tags": ["Module"],
+        "tags": [
+          "Module"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -1773,7 +1821,9 @@
           }
         },
         "summary": "",
-        "tags": ["Module"],
+        "tags": [
+          "Module"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -1838,7 +1888,9 @@
           }
         },
         "summary": "",
-        "tags": ["Module"],
+        "tags": [
+          "Module"
+        ],
         "parameters": []
       }
     },
@@ -1889,7 +1941,9 @@
           }
         },
         "summary": "",
-        "tags": ["Module"],
+        "tags": [
+          "Module"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -1949,7 +2003,9 @@
           }
         },
         "summary": "",
-        "tags": ["Module"],
+        "tags": [
+          "Module"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2021,7 +2077,9 @@
           }
         },
         "summary": "",
-        "tags": ["Module"],
+        "tags": [
+          "Module"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2086,7 +2144,9 @@
           }
         },
         "summary": "",
-        "tags": ["Page"],
+        "tags": [
+          "Page"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -2272,7 +2332,9 @@
           }
         },
         "summary": "",
-        "tags": ["Page"],
+        "tags": [
+          "Page"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2337,7 +2399,9 @@
           }
         },
         "summary": "",
-        "tags": ["Page"],
+        "tags": [
+          "Page"
+        ],
         "parameters": []
       }
     },
@@ -2388,7 +2452,9 @@
           }
         },
         "summary": "",
-        "tags": ["Page"],
+        "tags": [
+          "Page"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2448,7 +2514,9 @@
           }
         },
         "summary": "",
-        "tags": ["Page"],
+        "tags": [
+          "Page"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2520,7 +2588,9 @@
           }
         },
         "summary": "",
-        "tags": ["Page"],
+        "tags": [
+          "Page"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2585,7 +2655,9 @@
           }
         },
         "summary": "",
-        "tags": ["Practice"],
+        "tags": [
+          "Practice"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -2771,7 +2843,9 @@
           }
         },
         "summary": "",
-        "tags": ["Practice"],
+        "tags": [
+          "Practice"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -2836,7 +2910,9 @@
           }
         },
         "summary": "",
-        "tags": ["Practice"],
+        "tags": [
+          "Practice"
+        ],
         "parameters": []
       }
     },
@@ -2887,7 +2963,9 @@
           }
         },
         "summary": "",
-        "tags": ["Practice"],
+        "tags": [
+          "Practice"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -2947,7 +3025,9 @@
           }
         },
         "summary": "",
-        "tags": ["Practice"],
+        "tags": [
+          "Practice"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3019,7 +3099,9 @@
           }
         },
         "summary": "",
-        "tags": ["Practice"],
+        "tags": [
+          "Practice"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -3085,7 +3167,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3154,7 +3238,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -3344,7 +3430,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3409,7 +3497,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "parameters": []
       }
     },
@@ -3464,7 +3554,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -3528,7 +3620,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3600,7 +3694,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -3666,7 +3762,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3735,7 +3833,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -3804,7 +3904,9 @@
           }
         },
         "summary": "",
-        "tags": ["Pusher"],
+        "tags": [
+          "Pusher"
+        ],
         "parameters": []
       }
     },
@@ -3859,7 +3961,9 @@
           }
         },
         "summary": "",
-        "tags": ["HealthCheck"],
+        "tags": [
+          "HealthCheck"
+        ],
         "parameters": []
       }
     },
@@ -3913,7 +4017,9 @@
           }
         },
         "summary": "",
-        "tags": ["Resultmodule"],
+        "tags": [
+          "Resultmodule"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -4099,7 +4205,9 @@
           }
         },
         "summary": "",
-        "tags": ["Resultmodule"],
+        "tags": [
+          "Resultmodule"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4164,7 +4272,9 @@
           }
         },
         "summary": "",
-        "tags": ["Resultmodule"],
+        "tags": [
+          "Resultmodule"
+        ],
         "parameters": []
       }
     },
@@ -4215,7 +4325,9 @@
           }
         },
         "summary": "",
-        "tags": ["Resultmodule"],
+        "tags": [
+          "Resultmodule"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4275,7 +4387,9 @@
           }
         },
         "summary": "",
-        "tags": ["Resultmodule"],
+        "tags": [
+          "Resultmodule"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4347,7 +4461,9 @@
           }
         },
         "summary": "",
-        "tags": ["Resultmodule"],
+        "tags": [
+          "Resultmodule"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4412,7 +4528,9 @@
           }
         },
         "summary": "",
-        "tags": ["Section"],
+        "tags": [
+          "Section"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -4598,7 +4716,9 @@
           }
         },
         "summary": "",
-        "tags": ["Section"],
+        "tags": [
+          "Section"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4663,7 +4783,9 @@
           }
         },
         "summary": "",
-        "tags": ["Section"],
+        "tags": [
+          "Section"
+        ],
         "parameters": []
       }
     },
@@ -4714,7 +4836,9 @@
           }
         },
         "summary": "",
-        "tags": ["Section"],
+        "tags": [
+          "Section"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4774,7 +4898,9 @@
           }
         },
         "summary": "",
-        "tags": ["Section"],
+        "tags": [
+          "Section"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -4846,7 +4972,9 @@
           }
         },
         "summary": "",
-        "tags": ["Section"],
+        "tags": [
+          "Section"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -4911,7 +5039,9 @@
           }
         },
         "summary": "",
-        "tags": ["Sectiondetail"],
+        "tags": [
+          "Sectiondetail"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -5097,7 +5227,9 @@
           }
         },
         "summary": "",
-        "tags": ["Sectiondetail"],
+        "tags": [
+          "Sectiondetail"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5162,7 +5294,9 @@
           }
         },
         "summary": "",
-        "tags": ["Sectiondetail"],
+        "tags": [
+          "Sectiondetail"
+        ],
         "parameters": []
       }
     },
@@ -5213,7 +5347,9 @@
           }
         },
         "summary": "",
-        "tags": ["Sectiondetail"],
+        "tags": [
+          "Sectiondetail"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5273,7 +5409,9 @@
           }
         },
         "summary": "",
-        "tags": ["Sectiondetail"],
+        "tags": [
+          "Sectiondetail"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5345,7 +5483,9 @@
           }
         },
         "summary": "",
-        "tags": ["Sectiondetail"],
+        "tags": [
+          "Sectiondetail"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5410,7 +5550,9 @@
           }
         },
         "summary": "",
-        "tags": ["Userpractice"],
+        "tags": [
+          "Userpractice"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -5596,7 +5738,9 @@
           }
         },
         "summary": "",
-        "tags": ["Userpractice"],
+        "tags": [
+          "Userpractice"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5661,7 +5805,9 @@
           }
         },
         "summary": "",
-        "tags": ["Userpractice"],
+        "tags": [
+          "Userpractice"
+        ],
         "parameters": []
       }
     },
@@ -5712,7 +5858,9 @@
           }
         },
         "summary": "",
-        "tags": ["Userpractice"],
+        "tags": [
+          "Userpractice"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5772,7 +5920,9 @@
           }
         },
         "summary": "",
-        "tags": ["Userpractice"],
+        "tags": [
+          "Userpractice"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5844,7 +5994,9 @@
           }
         },
         "summary": "",
-        "tags": ["Userpractice"],
+        "tags": [
+          "Userpractice"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -5910,7 +6062,9 @@
           }
         },
         "summary": "",
-        "tags": ["Email - Email"],
+        "tags": [
+          "Email - Email"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -5979,7 +6133,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6048,7 +6204,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": []
       }
     },
@@ -6103,7 +6261,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": []
       }
     },
@@ -6158,7 +6318,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -6222,7 +6384,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -6288,7 +6452,9 @@
           }
         },
         "summary": "",
-        "tags": ["Upload - File"],
+        "tags": [
+          "Upload - File"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -6350,7 +6516,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -6415,7 +6583,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -6601,7 +6771,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -6662,7 +6834,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "role",
@@ -6737,7 +6911,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - Role"],
+        "tags": [
+          "UsersPermissions - Role"
+        ],
         "parameters": [
           {
             "name": "role",
@@ -6802,7 +6978,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7004,7 +7182,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": []
       }
     },
@@ -7059,7 +7239,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7124,7 +7306,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7189,7 +7373,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "provider",
@@ -7255,7 +7441,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7324,7 +7512,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7393,7 +7583,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": []
       }
     },
@@ -7448,7 +7640,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "requestBody": {
           "description": "",
           "required": true,
@@ -7516,7 +7710,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "_limit",
@@ -7704,7 +7900,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": []
       }
     },
@@ -7755,7 +7953,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7815,7 +8015,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7890,7 +8092,9 @@
           }
         },
         "summary": "",
-        "tags": ["UsersPermissions - User"],
+        "tags": [
+          "UsersPermissions - User"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -7909,7 +8113,9 @@
   "components": {
     "schemas": {
       "Blogs": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -7927,7 +8133,9 @@
             "type": "string"
           },
           "category": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -7994,7 +8202,9 @@
         }
       },
       "Category": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8011,7 +8221,9 @@
           "blogs": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8079,7 +8291,9 @@
         }
       },
       "Content": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8093,7 +8307,9 @@
           "modules": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8173,7 +8389,9 @@
         }
       },
       "Module": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8193,7 +8411,9 @@
           "practices": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8228,7 +8448,9 @@
           "contents": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8260,7 +8482,9 @@
           "resultmodules": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8340,7 +8564,9 @@
         }
       },
       "Page": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8357,7 +8583,9 @@
           "sections": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8414,7 +8642,9 @@
         }
       },
       "Practice": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8428,7 +8658,9 @@
           "modules": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8476,7 +8708,9 @@
             }
           },
           "userpractice": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -8543,13 +8777,17 @@
         }
       },
       "Resultmodule": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
           },
           "module": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -8602,7 +8840,9 @@
             "type": "number"
           },
           "userpractice": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -8666,7 +8906,9 @@
         }
       },
       "Section": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8680,7 +8922,9 @@
           "pages": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -8710,7 +8954,9 @@
             }
           },
           "sectiondetail": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -8766,7 +9012,9 @@
         }
       },
       "Sectiondetail": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -8812,7 +9060,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -8839,7 +9089,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -8927,7 +9179,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -8954,7 +9208,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -8972,7 +9228,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9072,7 +9330,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9175,7 +9435,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9202,7 +9464,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -9351,7 +9615,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9381,7 +9647,9 @@
                       "type": "number"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9545,7 +9813,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9572,7 +9842,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -9660,7 +9932,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9754,7 +10028,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9781,7 +10057,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -9799,7 +10077,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
@@ -9808,7 +10088,9 @@
             "type": "string"
           },
           "section": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -9881,7 +10163,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -9908,7 +10192,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -9996,7 +10282,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10023,7 +10311,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -10041,7 +10331,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10141,7 +10433,9 @@
                       "type": "string"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10244,7 +10538,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10271,7 +10567,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -10420,7 +10718,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10450,7 +10750,9 @@
                       "type": "number"
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10614,7 +10916,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10641,7 +10945,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -10729,7 +11035,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10823,7 +11131,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 },
                 {
                   "properties": {
@@ -10850,7 +11160,9 @@
                       "type": "array",
                       "items": {
                         "type": "object",
-                        "required": ["id"],
+                        "required": [
+                          "id"
+                        ],
                         "properties": {
                           "id": {
                             "type": "string"
@@ -10868,7 +11180,9 @@
                       }
                     }
                   },
-                  "required": ["id"]
+                  "required": [
+                    "id"
+                  ]
                 }
               ]
             }
@@ -10888,13 +11202,19 @@
         }
       },
       "Userpractice": {
-        "required": ["id"],
+        "required": [
+          "id"
+        ],
         "properties": {
           "id": {
             "type": "string"
           },
           "users_permissions_user": {
-            "required": ["id", "username", "email"],
+            "required": [
+              "id",
+              "username",
+              "email"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -10941,7 +11261,9 @@
             }
           },
           "practice": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -10978,7 +11300,9 @@
           "resultmodules": {
             "type": "array",
             "items": {
-              "required": ["id"],
+              "required": [
+                "id"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -11043,7 +11367,10 @@
         }
       },
       "UsersPermissionsRole": {
-        "required": ["id", "name"],
+        "required": [
+          "id",
+          "name"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -11061,7 +11388,13 @@
           "permissions": {
             "type": "array",
             "items": {
-              "required": ["id", "type", "controller", "action", "enabled"],
+              "required": [
+                "id",
+                "type",
+                "controller",
+                "action",
+                "enabled"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -11096,7 +11429,11 @@
           "users": {
             "type": "array",
             "items": {
-              "required": ["id", "username", "email"],
+              "required": [
+                "id",
+                "username",
+                "email"
+              ],
               "properties": {
                 "id": {
                   "type": "string"
@@ -11146,7 +11483,9 @@
         }
       },
       "NewUsersPermissionsRole": {
-        "required": ["name"],
+        "required": [
+          "name"
+        ],
         "properties": {
           "name": {
             "type": "string",
@@ -11179,7 +11518,11 @@
         }
       },
       "UsersPermissionsUser": {
-        "required": ["id", "username", "email"],
+        "required": [
+          "id",
+          "username",
+          "email"
+        ],
         "properties": {
           "id": {
             "type": "string"
@@ -11204,7 +11547,10 @@
             "default": false
           },
           "role": {
-            "required": ["id", "name"],
+            "required": [
+              "id",
+              "name"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -11243,7 +11589,9 @@
             "maxLength": 255
           },
           "userpractice": {
-            "required": ["id"],
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string"
@@ -11277,7 +11625,10 @@
         }
       },
       "NewUsersPermissionsUser": {
-        "required": ["username", "email"],
+        "required": [
+          "username",
+          "email"
+        ],
         "properties": {
           "username": {
             "type": "string",
@@ -11328,7 +11679,10 @@
         }
       },
       "Error": {
-        "required": ["code", "message"],
+        "required": [
+          "code",
+          "message"
+        ],
         "properties": {
           "code": {
             "type": "integer",
@@ -11350,9 +11704,6 @@
   },
   "tags": [
     {
-      "name": "HealthCheck"
-    },
-    {
       "name": "Blogs"
     },
     {
@@ -11372,6 +11723,9 @@
     },
     {
       "name": "Pusher"
+    },
+    {
+      "name": "HealthCheck"
     },
     {
       "name": "Resultmodule"
