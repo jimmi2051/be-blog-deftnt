@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contents",
+  "info": {
+    "name": "content"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "type": {
+      "type": "string"
+    },
+    "data": {
+      "type": "json"
+    },
+    "modules": {
+      "collection": "module",
+      "via": "contents",
+      "dominant": true
+    }
+  }
+}

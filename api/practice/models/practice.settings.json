@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "practices",
+  "info": {
+    "name": "practice",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "totalPoint": {
+      "type": "float",
+      "min": 0
+    },
+    "title": {
+      "type": "string"
+    },
+    "modules": {
+      "collection": "module",
+      "via": "practices"
+    },
+    "userpractice": {
+      "via": "practice",
+      "model": "userpractice"
+    }
+  }
+}

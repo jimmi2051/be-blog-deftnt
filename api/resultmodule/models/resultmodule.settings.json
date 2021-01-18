@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "resultmodules",
+  "info": {
+    "name": "resultmodule"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "module": {
+      "model": "module",
+      "via": "resultmodules"
+    },
+    "timeUsed": {
+      "type": "float",
+      "min": 0
+    },
+    "point": {
+      "type": "float"
+    },
+    "userpractice": {
+      "model": "userpractice",
+      "via": "resultmodules"
+    }
+  }
+}

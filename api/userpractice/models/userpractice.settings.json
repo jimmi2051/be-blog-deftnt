@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "userpractices",
+  "info": {
+    "name": "userpractice"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "userpractice"
+    },
+    "practice": {
+      "model": "practice",
+      "via": "userpractice"
+    },
+    "totalPoint": {
+      "type": "float",
+      "min": 0
+    },
+    "resultmodules": {
+      "via": "userpractice",
+      "collection": "resultmodule"
+    }
+  }
+}

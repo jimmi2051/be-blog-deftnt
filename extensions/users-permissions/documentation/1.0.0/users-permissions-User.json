@@ -1254,6 +1254,40 @@
           "fullname": {
             "type": "string",
             "maxLength": 255
+          },
+          "userpractice": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "practice": {
+                "type": "string"
+              },
+              "totalPoint": {
+                "type": "number"
+              },
+              "resultmodules": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -1299,6 +1333,9 @@
           "fullname": {
             "type": "string",
             "maxLength": 255
+          },
+          "userpractice": {
+            "type": "string"
           },
           "created_by": {
             "type": "string"

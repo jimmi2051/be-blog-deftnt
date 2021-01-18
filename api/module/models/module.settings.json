@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "modules",
+  "info": {
+    "name": "module"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "point": {
+      "type": "float",
+      "min": 0
+    },
+    "timeToDo": {
+      "type": "float",
+      "min": 0
+    },
+    "position": {
+      "type": "integer",
+      "min": 0
+    },
+    "title": {
+      "type": "string"
+    },
+    "practices": {
+      "via": "modules",
+      "collection": "practice",
+      "dominant": true
+    },
+    "contents": {
+      "via": "modules",
+      "collection": "content"
+    },
+    "resultmodules": {
+      "via": "module",
+      "collection": "resultmodule"
+    }
+  }
+}

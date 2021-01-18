@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/userpractices",
+      "handler": "userpractice.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/userpractices/count",
+      "handler": "userpractice.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/userpractices/:id",
+      "handler": "userpractice.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/userpractices",
+      "handler": "userpractice.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/userpractices/:id",
+      "handler": "userpractice.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/userpractices/:id",
+      "handler": "userpractice.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
