@@ -115,3 +115,5 @@ package-lock.json
 
 yarn.lock
 .env
+
+.strapi-updater.json
