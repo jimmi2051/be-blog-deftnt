@@ -707,6 +707,7 @@ const formatBotMsg = (message, channel) => {
     user: "Tèo Bot",
     message,
     channel,
+    createdAt: Date.now(),
   };
 };
 const formatBotMsgToSave = (message, channel) => {
