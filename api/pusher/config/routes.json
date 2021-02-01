@@ -87,6 +87,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "post",
+      "path": "/contact",
+      "handler": "message.sendMail",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
