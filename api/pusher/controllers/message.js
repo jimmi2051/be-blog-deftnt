@@ -781,6 +781,7 @@ const processForQuestion = async (entities) => {
       }
     }
     let urlGetKey = `https://en.wikipedia.org/w/api.php?action=opensearch&search=${question}&limit=1&namespace=0&format=json`;
+    urlGetKey = encodeURI(urlGetKey);
     let keySearch = "";
     let fullUrl = "";
     await fetch(urlGetKey)
@@ -792,6 +793,7 @@ const processForQuestion = async (entities) => {
         fullUrl = result[3][0];
       });
     let urlSearch = `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exintro&explaintext&titles=${keySearch}&format=json&redirects&exlimit=1&exsentences=3`;
+    urlSearch = encodeURI(urlSearch);
     await fetch(urlSearch)
       .then((response) => {
         return response.json();
