@@ -977,7 +977,6 @@ module.exports = {
   },
 
   async sendMail(ctx) {
-    console.log("haha");
     let { email, name, description } = ctx.request.body;
     try {
       const nameSender = name;
@@ -1012,5 +1011,12 @@ module.exports = {
     }
     // Send 200 `ok`
     ctx.send({});
+  },
+  async sendCall(ctx) {
+    const { channelId, callerId, receiverId } = ctx.request.body;
+    const data = { channelId, callerId, receiverId };
+    pusher.trigger("call-channel", "trigger-call", data);
+
+    return ctx.send({});
   },
 };
