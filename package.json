@@ -11,9 +11,9 @@
   },
   "devDependencies": {},
   "dependencies": {
-    "js-yaml": "^3.14.1",
-    "node-wit": "^6.0.0",
-    "pusher": "^4.0.1",
+    "js-yaml": "3.14.1",
+    "node-wit": "6.0.0",
+    "pusher": "4.0.1",
     "strapi": "3.4.1",
     "strapi-admin": "3.4.1",
     "strapi-connector-mongoose": "3.4.1",
