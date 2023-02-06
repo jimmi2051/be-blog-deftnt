@@ -4,6 +4,12 @@
  * Read the documentation (https://strapi.io/documentation/3.0.0-beta.x/concepts/controllers.html#core-controllers)
  * to customize this controller
  */
+import { Configuration, OpenAIApi } from "openai";
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
 
 const template = (name, description) => {
   return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -687,23 +693,23 @@ function sleeper(ms) {
   };
 }
 const client = new Wit({
-  accessToken: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
+  accessToken: process.env.WIT_TOKEN,
   logger: new log.Logger(log.ERROR),
 });
 // interactive(client);
 const Pusher = require("pusher");
 
 const pusher = new Pusher({
-  appId: "1107725",
-  key: "1bb3ea564162ad9f320a",
-  secret: "2058be83916de15b8c1a",
+  appId: process.env.PUSHER_APP_ID,
+  key: process.env.PUSHER_KEY,
+  secret: process.env.PUSHER_SECRET,
   cluster: "ap1",
   useTLS: true,
 });
 
 const formatBotMsg = (message, channel) => {
   return {
-    id: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
+    id: process.env.WIT_TOKEN,
     user: "Tèo Bot",
     message,
     channel,
@@ -712,7 +718,7 @@ const formatBotMsg = (message, channel) => {
 };
 const formatBotMsgToSave = (message, channel) => {
   return {
-    senderId: "WMWRLPTOF5VPFVDMXR2AD6MRQ46AM2R3",
+    senderId: process.env.WIT_TOKEN,
     senderName: "Tèo Bot",
     receiverId: null,
     receiverName: null,
@@ -834,6 +840,18 @@ module.exports = {
       client.message(message).then(async (data) => {
         const { entities, intents, traits } = data;
         let resOfBot = processForGreetings(entities);
+        try {
+          if (resOfBot === "") {
+            const completion = await openai.createCompletion({
+              model: "text-davinci-003",
+              prompt: generatePrompt(animal),
+              temperature: 0.6,
+            });
+            resOfBot = completion.data.choices[0].text;
+          }
+        } catch (error) {
+          console.log(error);
+        }
         if (resOfBot === "") {
           resOfBot = await processForQuestion(entities);
         }
