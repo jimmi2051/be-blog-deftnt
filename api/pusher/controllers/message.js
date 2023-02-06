@@ -844,7 +844,7 @@ module.exports = {
           if (resOfBot === "") {
             const completion = await openai.createCompletion({
               model: "text-davinci-003",
-              prompt: generatePrompt(animal),
+              prompt: message,
               temperature: 0.6,
             });
             resOfBot = completion.data.choices[0].text;
